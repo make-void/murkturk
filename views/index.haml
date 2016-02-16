@@ -1,0 +1,22 @@
+:ruby
+  word = "Murk"
+
+%html
+  %body
+    %h1 Who will be the next US president?
+
+    %form
+      %input#resp
+      %input#btn{ type: "submit" , value: "Answer" }
+
+  %script{ src: "https://code.jquery.com/jquery-2.2.0.min.js" }
+  :javascript
+    onclick = function() {
+      resp = $("#resp").val()
+      $.get("/resp?resp="+resp)
+    }
+
+
+    d = document
+    btn = d.querySelector("#btn")
+    btn.addEventListener("click", onclick)
